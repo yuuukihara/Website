@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
+	<!-- <constant name="struts.devMode" value="true" /> -->
+	<constant name="struts.devMode" value="true" />
+	<package name="com.internousdev.i1810b.action" extends="struts-default">
+
+	<action name="EnterAction" class="action.EnterAction" method="execute">
+		<result name="success">home.jsp</result>
+	</action>
+
+	<action name="TweetAction" class="action.TweetAction" method="execute">
+		<result name="success">tweet.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+	<action name="TweetConfirmAction" class="action.TweetConfirmAction" method="execute">
+		<result name="success">home.jsp</result>
+		<result name="error">tweet.jsp</result>
+	</action>
+
+	<action name="LoginAction" class="action.LoginAction" method="execute">
+		<result name="success">login.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="LoginConfirmAction" class="action.LoginConfirmAction" method="execute">
+		<result name="success">loginComplete.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+	<action name="GoHomeAction" class="action.GoHomeAction" method="execute">
+		<result name="success">home.jsp</result>
+	</action>
+
+	<action name="LogoutAction" class="action.LogoutAction" method="execute">
+		<result name="success">enter.jsp</result>
+		<result name="error">enter.jsp</result>
+	</action>
+
+	<action name="CreateUserAction" class="action.CreateUserAction" method="execute">
+		<result name="success">createUser.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateUserConfirmAction" class="action.CreateUserConfirmAction" method="execute">
+		<result name="success">createUserConfirm.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateUserCompleteAction" class="action.CreateUserCompleteAction" method="execute">
+		<result name="success">createUserComplete.jsp</result>
+	</action>
+
+	<action name="SeeUserInfoAction" class="action.SeeUserInfoAction" method="execute">
+		<result name="success">seeUserInfo.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+</package>
+</struts>

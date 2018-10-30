@@ -10,23 +10,27 @@
 	.main{
 		height:auto;
 		padding:5% 5%;
-		background-color:hotpink;
+		background-color:#008BBB;
 	}
 	.main-form{
 		width:100%;
-		background-color:aliceblue;
+		background-color:white;
+		border-radius:20px;
 		padding:10px;
 	}
 	.right{
 		float:right;
+		color: #ff0000;
 		width:30%;
 		border:solid 2px black;
+		border-radius:20px;
 		padding-top:20px;
 		font-size:20px;
 	}
 	.left{
 		float:clear;
-		background-color:royalblue;
+		border-radius:20px;
+		background-color:#F2F2F2;
 		width:68%;
 		border:solid 2px black;
 		text-align:center;
@@ -34,23 +38,20 @@
 	.tweetbox{
 		display:inline-block;
 		margin:10px;
-		background-color:white;
 		border-radius:20px;
 		border:solid 2px black;
 		width:90%;
+		background-color:white;
 	}
  	.title{
 	 	text-align:left;
-		background-color:red;
 		border-bottom:solid 2px black;
 	}
 	.text{
 		text-align:left;
-		background-color:green;
 	}
 	.userName{
 		text-align:right;
-		background-color:pink;
 		font-size:15px;
 		border-top:solid 1px black;
 	}

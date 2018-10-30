@@ -10,7 +10,7 @@ create table user_info(
   id int primary key not null auto_increment comment "ID",
   user_id varchar(16) unique not null comment "ユーザーID",
   password varchar(16) not null comment "パスワード",
-  user_name varchar(32) not null comment "ユーザー名",
+  user_name varchar(16) not null comment "ユーザー名",
   logined tinyint not null default 0 comment "ログインフラグ")
 default charset=utf8
 comment="会員情報テーブル"

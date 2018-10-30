@@ -6,6 +6,8 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import util.InputChecker;
+
 public class CreateUserConfirmAction extends ActionSupport implements SessionAware{
 
 	private Map<String,Object> session;
@@ -15,12 +17,15 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 	public String execute(){
 
-		String result = SUCCESS;
-		session.put("loginId",loginId);
-		session.put("password", password);
-		session.put("userName", userName);
-		session.put("logined", 1);
-		return result;
+		InputChecker ic = new InputChecker();
+		if(ic.doCheck("loginId", loginId, 1, 16)=="成功" && ic.doCheck("password", password, 1, 16)=="成功" && ic.doCheck("userName", userName, 1, 16)=="成功"){
+			session.put("loginId",loginId);
+			session.put("password", password);
+			session.put("userName", userName);
+			session.put("logined", 1);
+			return SUCCESS;
+		}
+		return ERROR;
 	}
 
 	public String getLoginId(){

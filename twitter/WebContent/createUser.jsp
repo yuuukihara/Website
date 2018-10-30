@@ -6,15 +6,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
 
-<s:form action="CreateUserConfirmAction">
-	id:<s:textfield name="loginId"/><br>
-	pass:<s:textfield name="password"/><br>
-	name:<s:textfield name="userName"/><br>
-	<s:submit value="登録"/>
-</s:form>
-
+<div class="contentForm">
+	<div class="mainForm">
+		<s:form action="CreateUserConfirmAction">
+			<div class="box">
+				<p>ログインId</p>
+				<s:textfield name="loginId" class="inputForm"/>
+			</div>
+			<div class="box">
+				<p>ユーザー名</p>
+				<s:textfield name="userName" class="inputForm"/>
+			</div>
+			<div class="box">
+				<p>パスワード</p>
+				<s:password name="password" class="inputForm"/>
+			</div>
+			<div class="box">
+				<div class="btn">
+					<s:submit value="登録" class="inputForm"/>
+				</div>
+			</div>
+		</s:form>
+	</div>
+</div>
 </body>
 </html>

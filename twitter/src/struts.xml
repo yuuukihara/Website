@@ -49,7 +49,7 @@
 
 	<action name="CreateUserConfirmAction" class="action.CreateUserConfirmAction" method="execute">
 		<result name="success">createUserConfirm.jsp</result>
-		<result name="error">home.jsp</result>
+		<result name="error">createUser.jsp</result>
 	</action>
 
 	<action name="CreateUserCompleteAction" class="action.CreateUserCompleteAction" method="execute">

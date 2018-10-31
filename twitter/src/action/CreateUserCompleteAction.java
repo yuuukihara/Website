@@ -15,11 +15,10 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 	public String execute(){
 
 		String result;
-		int count = 0;
 
 		//データベースに新規登録＆ログインフラグを立てる
 		UserDAO dao = new UserDAO();
-		count = dao.createUser(String.valueOf(session.get("loginId")), String.valueOf(session.get("password")), String.valueOf(session.get("userName")));
+		dao.createUser(String.valueOf(session.get("loginId")), String.valueOf(session.get("password")), String.valueOf(session.get("userName")));
 		result = SUCCESS;
 
 

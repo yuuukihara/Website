@@ -6,11 +6,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<link rel="stylesheet" href="./css/complete.css">
 	<meta http-equiv="refresh" content="3; URL='GoHomeAction'">
 </head>
 <body>
 
-登録完了
+<div class="complete">登録完了</div>
 
 </body>
 </html>

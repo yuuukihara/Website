@@ -13,8 +13,10 @@
 <body>
 <div class="contentForm">
 	<div class="mainForm">
+	<s:if test="%{checkMassage != null}">
+		<s:property value="checkMassage"/><br>
+	</s:if>
 		<s:form action="LoginConfirmAction">
-
 			<div class="box">
 				<div class="title">ログインId</div>
 				<s:textfield name="loginId" class="inputForm"/>

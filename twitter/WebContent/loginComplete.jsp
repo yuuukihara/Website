@@ -7,11 +7,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="refresh" content="3; URL='GoHomeAction'">
 	<title>Insert title here</title>
+	<link rel="stylesheet" href="./css/complete.css">
 
 </head>
 <body>
 
-ログイン成功
+<div class="complete">ログイン成功</div>
 
 </body>
 </html>

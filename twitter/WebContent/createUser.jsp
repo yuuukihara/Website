@@ -12,6 +12,9 @@
 
 <div class="contentForm">
 	<div class="mainForm">
+	<s:if test="%{errorMassage != null}">
+		<s:property value="errorMassage"/><br>
+	</s:if>
 		<s:form action="CreateUserConfirmAction">
 			<div class="box">
 				<p>ログインId</p>

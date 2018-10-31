@@ -10,8 +10,7 @@
 <body>
 
 <h1>つぶやく</h1>
-<s:property value="ErrorMassage"/>
-
+	<s:property value="#session.errorMassage"/>
 <s:form action="TweetConfirmAction">
 	<s:textfield name="title"/>
 	<s:textfield name="text"/>

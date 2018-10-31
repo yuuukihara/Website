@@ -26,6 +26,7 @@ public class EnterAction extends ActionSupport implements SessionAware{
 			session.remove("password");
 			session.remove("userName");
 			session.remove("logined");
+			session.remove("errorMassage");
 		}
 		//つぶやきをput
 		List<TweetDTO> tweetDTOList = new ArrayList<TweetDTO>();

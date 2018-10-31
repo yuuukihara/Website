@@ -11,40 +11,31 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import dao.TweetDAO;
 import dto.TweetDTO;
+import util.InputChecker;
 
 public class TweetConfirmAction extends ActionSupport implements SessionAware{
 
 	private String text;
 	private String title;
 	private Map<String, Object> session;
-	private List<TweetDTO> tweetDTOList = new ArrayList<TweetDTO>();
 	private String ErrorMassage = "";
 
 	public String execute(){
 
-		String result = ERROR;
+		String result=ERROR;
 
 		//エラーチェック
-		if(title=="" && text==""){
-			ErrorMassage += "タイトルと本文が記入されていません";
-		}else if(title.length()<1){
-			ErrorMassage += "タイトルが記入されていません";
-		}else if(text.length() <1){
-			ErrorMassage += "本文が記入されていません";
-		}
+		InputChecker ip = new InputChecker();
+		String errorMassage = ip.doTweetCheck(title,text);
 
-		if(title.length()>15 && text.length() >140){
-			ErrorMassage += "タイトルを15文字以内、本文を140字以内で書き込んでください";
-		}else if(title.length()>15){
-			ErrorMassage += "タイトルを15文字以内で書き込んでください";
-		}else if(text.length() >140){
-			ErrorMassage += "本文は140字以内で書き込んでください";
-		}
-
-
-		//title15字以内で、かつ、本文が140字以内の場合
-		if(title.length()<=15 && text.length() <=140){
-
+		//入力した値が文字数制限に引っかかった場合
+		if(!(errorMassage.equals(""))){
+			if(session.containsKey("errorMassage")){
+				session.remove("errorMassage");
+			}
+			session.put("errorMassage", errorMassage);
+			result = ERROR;
+		}else{
 			//データベースにタイトルと本文を格納(引数は:loginId,userName,title,text)
 			TweetDAO tweetDAO = new TweetDAO();
 			int count = tweetDAO.insert(String.valueOf(session.get("loginId")),String.valueOf(session.get("userName")), title, text);
@@ -52,14 +43,13 @@ public class TweetConfirmAction extends ActionSupport implements SessionAware{
 			//データベースに呟きが格納されたら
 			if(count>0){
 
-				//フィールドでインスタンス化しとる
+				List<TweetDTO> tweetDTOList = new ArrayList<TweetDTO>();
 				tweetDTOList = tweetDAO.getTweet();
 
 				//Listを逆に
 				Collections.reverse(tweetDTOList);
 				session.put("tweetDTOList", tweetDTOList);
 				result = SUCCESS;
-
 			}
 		}
 		return result;
@@ -71,14 +61,6 @@ public class TweetConfirmAction extends ActionSupport implements SessionAware{
 
 	public void setErrorMassage(String ErrorMassage){
 		this.ErrorMassage = ErrorMassage;
-	}
-
-	public List<TweetDTO> getTweetDTOList(){
-		return tweetDTOList;
-	}
-
-	public void setTweetDTOList(List<TweetDTO> tweetDTOList){
-		this.tweetDTOList = tweetDTOList;
 	}
 
 	public String getText(){

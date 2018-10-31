@@ -6,17 +6,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<link rel="stylesheet" href="./css/login.css">
+	<style type="text/css">
+	.goHome{
+		float:right;
+	}
+	</style>
 </head>
 <body>
 
-<s:form action="CreateUserCompleteAction">
-	id:<s:property value="#session.loginId"/><br>
-	password:<s:property value="#session.password"/><br>
-	userName:<s:property value="#session.userName"/><br>
-	<s:submit value="確認して登録"/>
-</s:form>
-
-登録しないでホームへ<a href="<s:url action="EnterAction"/>">戻る</a>
+<div class="contentForm">
+	<div class="mainForm">
+		<s:form action="CreateUserCompleteAction">
+			<table>
+				<tr class="confirmBox">
+					<th scope="row"><s:label value="ログインId"/>：</th>
+					<td><s:property value="loginId"/></td>
+				</tr>
+				<tr class="confirmBox">
+					<th scope="row"><s:label value="ユーザー名"/>：</th>
+					<td><s:property value="userName"/></td>
+				</tr>
+				<tr class="confirmBox">
+					<th scope="row"><s:label value="パスワード"/>：</th>
+					<td><s:property value="password"/></td>
+				</tr>
+			</table>
+			<div class="btn">
+				<s:submit value="確認して登録" class="inputForm"/>
+			</div>
+		</s:form>
+		<div class="goHome">ホームへ戻る場合は<a href="<s:url action="EnterAction"/>">こちら</a></div>
+	</div>
+</div>
 
 </body>
 </html>
